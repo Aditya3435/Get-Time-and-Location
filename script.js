@@ -8,27 +8,27 @@ const refresh = document.getElementById('refresh-quotes');
 const period = document.querySelector('.am-pm');
 
 function getQuote() {
-  axios.get('https://api.quotable.io/random').then((quotesRes) => {
-    const chosenQuote = quotesRes.data
+  fetch('https://api.quotable.io/random')
+  .then((response => response.json())
+  .then(data => {
 
-    document.getElementById("quote-lines").textContent = chosenQuote.content;
+    document.getElementById("quote-lines").textContent = data.content;
 
-    if (chosenQuote.author == null) {
+    if (data.author == null) {
       author.textContent = 'Unknown author';
     } else {
-      author.textContent = chosenQuote.author;
+      author.textContent = data.author;
     }
-  }).catch((err) => console.error(err))
+  }).catch((err) => console.error(err)));
 }
 
 
 // Get time
-
+function getTime() {
   let currentTime = new Date();
   let hour = currentTime.getHours();
   let minute = currentTime.getMinutes();
 
-  //Time of day
   let greet = '';
   if (hour >= 5 && hour <= 11) {
     greet = 'morning';
@@ -40,7 +40,6 @@ function getQuote() {
   }
   document.getElementById('greet').textContent = `good ${greet}`
 
-  //Background
   if (hour >= 5 && hour <= 17) {
     document.querySelector('.container img').setAttribute("src", "./images/light_11zon.jpg");
     document.querySelector('.upper svg').innerHTML = "<path fill=\"none\" d=\"M0 0h24v24H0z\"/><path d=\"M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z\"fill=\"rgba(236,240,241,1)\" />\"";
@@ -73,10 +72,11 @@ function getQuote() {
   //Update time
   let interval = (60 - (new Date()).getSeconds()) * 1000 + 5;
   setTimeout(getTime, interval)
+}
 
 
 
-function getTimeZone() {
+// get Times 
   axios.get('https://worldtimeapi.org/api/ip')
     .then((regionRes) => {
       const region = regionRes.data;
@@ -88,7 +88,7 @@ function getTimeZone() {
       document.getElementById('week-number').textContent = region.week_number;
     })
     .catch(err => console.error(err));
-}
+
 const key = config.SECRET_API_KEY;
 const options = {
 	method: 'GET',
@@ -97,7 +97,7 @@ const options = {
 		'X-RapidAPI-Host': 'find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com'
 	}
 };
-
+// state and country
 fetch('https://find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com/iplocation?apikey=873dbe322aea47f89dcf729dcc8f60e8', options)
 	.then(response => response.json())
 	.then(response => {
@@ -113,6 +113,8 @@ fetch('https://find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com/
 //refresh button
 refresh.addEventListener('click', getQuote);
 
+console.log('eue');
+
 more.addEventListener('click', () => {
   if (more.children[0].innerHTML == "More") {
     more.children[0].innerHTML = "Less"
@@ -127,5 +129,4 @@ more.addEventListener('click', () => {
 })
 getTime();
 getQuote();
-getTimeZone();
-getQuote();
+
