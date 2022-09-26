@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/Clock-icon.png" type="image/x-icon">
+    <title>Time with Location</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="" alt="bg">
+        <div class="quote">
+            <div class="quote-col">
+                <q id="quote-lines"></q>
+                <h1 class="author"></h1>
+            </div>
+            <svg id="refresh-quotes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                    d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm4.82-4.924A7 7 0 0 0 9.032 5.658l.975 1.755A5 5 0 0 1 17 12h-3l2.82 5.076zm-1.852 1.266l-.975-1.755A5 5 0 0 1 7 12h3L7.18 6.924a7 7 0 0 0 7.788 11.418z"
+                    fill="rgba(255,255,255,1)" />
+            </svg>
+        </div>
+
+        <div class="time-section">
+            <div class="time-details">
+                <div class="upper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"></svg>
+                    <p><span id="greet"></span>, It's currently</p>
+                </div>
+                <div class="time">
+                    <h1></h1>
+                    <div class="period">
+                        <p class="am-pm"></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="location"></div>
+            </div>
+            <div class="more-section">
+                <p>More</p> 
+                <svg id="more-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="#000" d="M0 0h24v24H0z" />
+                    <path d="M12 16l-6-6h12z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="details hidden">
+        <div class="first-col col">
+            <div class="first-row row">
+                <p>current timezone</p>
+                <h1 class="country"></h1>
+            </div>
+            <div class="second-row row">
+                <p>Day of the Week</p>
+                <h1 id="week-day"></h1>
+            </div>
+
+        </div>
+        <div class="verticle-line"></div>
+        <div class="second-col col col-1">
+            <div class="first-row row">
+                <p>Day of the year</p>
+                <h1 id="year-day"></h1>
+            </div>
+            <div class="second-row row">
+                <p>Week number</p>
+                <h1 id="week-number"></h1>
+            </div>
+        </div>
+    </div>
+    <footer>Made by <a href="https://github.com/Aditya3435/Get-Time-and-Location">&nbsp;Aditya</a></footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type='text/javascript' src='./config.js'></script>
+    <script type='text/javascript' src="./script.js"></script>
+
+</body>
+
+</html>

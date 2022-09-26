@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    text-decoration: none;
+}
+.rotate {
+    transform: rotate(180deg);
+}
+.container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+.container img {    
+    width: 100%;
+    height: 100%;
+}
+.container .quote {
+    position: absolute;
+    top: 4rem;
+    left: 15%;
+    display: flex;
+    flex: row;
+    width: 33rem;
+    color: white;
+    font-weight: 600;
+    line-height: 2rem;
+    
+}
+.q {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 500;
+}
+.quote h1 {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+.container .quote svg {
+    width: 2rem;
+    height: 2rem;
+    cursor:pointer;
+    margin-left: 1rem;
+    transition: all 0.5s ease;
+}
+.quote svg:active {
+    transform: rotate(360deg);
+}
+
+.container img {
+    filter: brightness(0.5);
+}
+.time-section {
+    position: absolute;
+    top: 50vh;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    color: white;
+}
+
+.upper, .time {
+    display: flex;
+    text-transform: uppercase;
+}
+.time {
+    position: relative;
+    min-width: 32rem;
+}
+.upper {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+.upper svg {
+    margin-top: 0.15rem;
+    margin-right: 0.8rem;
+}
+.time h1 {
+    font-size: 10rem;
+}
+.period {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 6rem;
+    left:27rem;
+}
+.location {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-left: 2rem;
+}
+.more-section {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 100;
+    letter-spacing: 1px;
+    height: 3rem;
+    width: 7rem;
+    align-self: center;
+    font-size: 0.8rem;
+    border-radius: 5rem;
+    background-color: white;
+    color: #000;
+    cursor: pointer;
+}
+.more-section:hover {
+    background-color:#ccc;
+}
+.quote-col {
+    display: flex;
+    flex-direction: column;
+}
+#quote-lines {
+    font-weight: 100;
+}
+.more-section:active {
+    background-color: #000;
+    color: #fff;
+}
+.more-section, #more-svg  {
+    fill: white;
+    border-radius: 5rem;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    background: none;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 0.2rem;
+}
+footer a {
+    color: tomato;
+}
+
+.details {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    height: 20rem;
+    background: rgb(168,168,168);
+    background: radial-gradient(circle, rgba(168,168,168,1) 0%, rgb(221, 221, 221) 35%, rgba(167,167,167,1) 100%); 
+}
+.details p {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+.details h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3rem;
+}
+
+.verticle-line {
+    height: 16rem;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.404);
+    position: absolute;
+    left: 50vw;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@media screen and (max-width: 905px) {
+    .time-section {
+        flex-direction: column;
+        justify-content: start;
+        margin-left: 5vw;
+    }
+    .more-section {
+        margin-left: 2.5rem;
+        align-self: auto;
+        margin-top: 2rem;
+    }
+}
+@media screen and (max-width: 675px) {
+    .container .quote {
+        width: 80%;
+        left: 3rem;
+        top: 3rem;
+        font-size: 0.8rem;
+        letter-spacing: 0;
+        line-height: 1rem;
+    }
+    .container img {    
+        width: 100%;
+        height: 100%;
+    }
+    .upper {
+        font-size: 0.8rem;
+        margin-left: 1rem;
+    }
+    .upper svg {
+        margin-top: 0;
+    }
+    .time {
+        width: 100vw;
+    }
+    .time h1 {
+        font-size: 7rem;
+    }
+    .period {
+        left: 19.3rem;
+        top: 3.5rem;
+    }
+    .location {
+        font-size: 2rem;
+        margin-left: 2rem;
+    }
+    .more-section {
+        margin-left: 1.5rem;
+        align-self: auto;
+        margin-top: 2rem;
+    }
+    .details p {
+        font-size: 0.6rem;
+    }
+    .details h1 {
+        font-size: 2.5rem;
+    }
+    .details .country {
+        font-size: 1.3rem;
+    }
+}
+
