@@ -22,7 +22,8 @@ function getQuote() {
 }
 
 
-function getTime() {
+// Get time
+
   let currentTime = new Date();
   let hour = currentTime.getHours();
   let minute = currentTime.getMinutes();
@@ -72,7 +73,7 @@ function getTime() {
   //Update time
   let interval = (60 - (new Date()).getSeconds()) * 1000 + 5;
   setTimeout(getTime, interval)
-}
+
 
 
 function getTimeZone() {
@@ -100,8 +101,10 @@ const options = {
 fetch('https://find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com/iplocation?apikey=873dbe322aea47f89dcf729dcc8f60e8', options)
 	.then(response => response.json())
 	.then(response => {
+    console.log(response);
     const countryname = response.country;
-    document.querySelector('.location').textContent = countryname;
+    const statename = response.state;
+    document.querySelector('.location').textContent = `${statename}, ${countryname}`;
   })
 	.catch(err => console.error(err));
 
@@ -125,5 +128,4 @@ more.addEventListener('click', () => {
 getTime();
 getQuote();
 getTimeZone();
-getLocation();
 getQuote();
